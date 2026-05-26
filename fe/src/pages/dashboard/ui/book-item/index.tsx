@@ -1,5 +1,5 @@
-import ProgressBar from "../../../../components/progress-bar";
-import type { Books } from "../../../../constant/Books";
+import ProgressBar from '../../../../components/progress-bar';
+import type { Books } from '../../../../constant/Books';
 
 type Props = {
   book: Books;
@@ -13,18 +13,12 @@ const BookItem = ({ book }: Props) => {
       <div className="w-[200px] border-[4px] border-black">
         <div className="relative w-full h-[300px]">
           <div className="absolute right-0 top-0 h-full w-[4px] bg-black" />
-          <img
-            src={book.cover_image_key ?? ""}
-            alt={book.title}
-            className="w-full h-full"
-          />
+          <img src={book.cover_image_key ?? ''} alt={book.title} className="w-full h-full" />
           <div className="absolute bottom-0 h-[4px] w-full bg-black justify-end right-0" />
         </div>
       </div>
       <div className="px-1">
-        <p className="text-left font-bold text-black line-clamp-1">
-          {book.title}
-        </p>
+        <p className="text-left font-bold text-black line-clamp-1">{book.title}</p>
         <p className="text-left text-amber-800 line-clamp-1">{book.author}</p>
         <div className="absolute bottom-0 w-full">
           <ProgressBar value={book.progress} />
