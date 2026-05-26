@@ -6,7 +6,7 @@ type Props = {
 };
 const BookItem = ({ book }: Props) => {
   return (
-    <div key={book.id} className="relative w-[200px] h-[400px]  block">
+    <div key={book.id} className="relative w-[200px] h-[400px]  block hover:cursor-pointer">
       <div className="absolute w-fit right-3 top-2 bg-blue-400 rounded-sm z-10">
         <p className="px-2 text-white text-[12px]">{book.file_format}</p>
       </div>
