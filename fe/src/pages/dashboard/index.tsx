@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import Divider from '../../components/divider';
 import type { Books } from '../../constant/Books';
 import BookAdd from './ui/book-add';
 import BookItem from './ui/book-item';
+import UploadModal from './ui/upload-file-modal';
 
 const mockBooks: Books[] = [
   {
@@ -78,6 +80,7 @@ const mockBooks: Books[] = [
 ];
 
 const Dashboard = () => {
+  const [showUploadModal, setShowUploadModal] = useState(false);
   return (
     <div className="w-full h-full py-3 flex flex-col gap-2">
       <div className="">
@@ -90,11 +93,13 @@ const Dashboard = () => {
         className="w-full h-10 px-1 border-b-slate-400 border-slate-400 border rounded-md bg-white"
       />
       <div className="flex flex-wrap gap-4">
-        <BookAdd />
+        <BookAdd onClick={() => setShowUploadModal(true)} />
         {mockBooks.map((book) => (
           <BookItem book={book} />
         ))}
       </div>
+
+      {showUploadModal && <UploadModal onClose={() => setShowUploadModal(false)} />}
     </div>
   );
 };
